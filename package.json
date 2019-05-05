@@ -1,0 +1,49 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "Cat_in_a_Box",
+  "author": "Uma Abrami",
+  "license": "",
+  "engines": {
+    "node": ">=10.15.3"
+  },
+  "scripts": {
+    "react-dev": "webpack -p --watch",
+    "server-dev": "nodemon server/index.js",
+    "write": "node --max_old_space_size=4096 ./database/writeCatData.js",
+    "seedDatabase":"node --max-old-space-size=4096 ./database/seedPostgresqlCats.js",
+    "enterPostgresEC2": "ssh -i postgres-test.pem ec2-user@ec2-54-215-226-106.us-west-1.compute.amazonaws.com"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csv-write-stream": "^2.0.0",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "fakergem": "^1.0.3",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.20",
+    "pg": "^7.10.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-image-gallery": "^0.8.16",
+    "reactjs-popup": "^1.3.2",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
