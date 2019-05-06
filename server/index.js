@@ -41,9 +41,9 @@ app.post('/owner/add', async (req, res) => {
 app.delete('/owner/delete', async (req, res) => {
   try {
     const {email} = req.body;
-    console.log(email);
+    console.log("email", email);
     const rowId = await db.deleteOwner(email);
-    res.status(201).send(`User deleted: ${rowId}`);
+    res.status(200).send(`User deleted: ${rowId}`);
   } catch (e) {
     // if (Error.Message === 'Error Inside DB Post') {
       res.sendStatus(500);

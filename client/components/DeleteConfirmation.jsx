@@ -4,7 +4,7 @@ const DeleteConfirmation = ({ owner }) => {
   return (
     <div>
       <p>
-        {`Thanks ${owner.firstName}, deleted you from our system.`}
+        {`Sorry to see you go! We have deleted the account associated with ${owner.email} from our system as requested.`}
       </p>
     </div>
   );

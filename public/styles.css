@@ -1,11 +1,18 @@
 body {
   /* background: radial-gradient(rgb(163, 163, 245), #24243e); */
-  /* width: 100%;
+  width: 100%;
   margin: 0;
-  padding: 0; */
+  padding: 0;
   font-family: 'Roboto', sans-serif;
 }
-
+.header {
+  font-family: 'Oleo Script', cursive;
+  font-size: 60px;
+  /* background-color: #f7f7f9;
+  border: 3px solid #f1f1f1; */
+  justify-content: center;
+  display: flex;
+}
 /* .main {
 
 } */
@@ -41,10 +48,10 @@ input, select {
   background-color:lightgrey;
   color: white;
   /* padding: 14px 20px; */
-  /* margin: 8px 0; */
+  margin: 8px 0;
   border: none;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 18px;
   width: 100%;
 }
 
@@ -59,6 +66,8 @@ input, select {
 .confirmationColor {
   color: blue;
   font-size: 20;
+  justify-content: center;
+  display: flex;
 }
 
 button:hover {
@@ -70,7 +79,7 @@ button:hover {
 }
 
 .confirmationPic {
-  margin: 1% auto;
+  margin: 5% auto;
   background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
   width: 400px;
@@ -88,12 +97,4 @@ button:hover {
   display: flex;
 }
 
-.header {
-  margin: 0.2% auto;
-  font-family: 'Oleo Script', cursive;
-  font-size: 60px;
-  /* background-color: #f7f7f9;
-  border: 3px solid #f1f1f1; */
-  justify-content: center;
-  display: flex;
-}
+

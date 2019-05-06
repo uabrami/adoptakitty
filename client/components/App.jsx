@@ -94,9 +94,10 @@ class App extends React.Component {
     this.emailValidate();
     document.getElementById('delete-confirmation').className = "confirmationColor transparent";
     const {email} = this.state;
+    console.log('email from React', email)
     if(this.state.validEmail === true){
-    axios.post('/owner/delete', {
-      email,
+    axios.delete('/owner/delete', {
+      data: {email: email}
     })
     .then(results => {
       console.log("delete results", results)
@@ -166,13 +167,13 @@ class App extends React.Component {
           <div className = "confirmation transparent" id="insert-confirmation">
               <InsertConfirmation owner = {this.state}/>
           </div>
-        </form>
-        <div>
+          <div>
           <button className="deleteButton" value="Cancel your appointment" onClick={this.deleteOwner}> Cancel your appointment </button>
             <div className = "confirmation transparent" id="delete-confirmation">
               <DeleteConfirmation owner = {this.state}/>
             </div>
           </div>
+        </form>
         </div>
       </div>
     );

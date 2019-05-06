@@ -8,6 +8,7 @@ const CatImageGallery = (props) => {
       images.push({
         original: catData[i].image,
         description: `name: ${catData[i].name},\n
+                      id: ${catData[i].id},
                       breed: ${catData[i].breed},\n
                       Location: ${catData[i].city}, ${catData[i].state}`
       })
