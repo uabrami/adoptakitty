@@ -10,8 +10,6 @@ const pool = new Pool({
   port: config.port,
 });
 
-//Postres query SELECT * from ActorInfo INNER JOIN MovieInfo ON movieinfo.ACTORID=actorInfo.ID WHERE movieinfo.movieid=movieid;
-
 const getAllCats = async (id) => {
   const getQuery = {
     name: 'get-All-Cats',
@@ -26,31 +24,48 @@ const getAllCats = async (id) => {
   }
 };
 
-// const getActorById = (id, callback) => {
-//   pool.query('SELECT * from ActorInfo INNER JOIN MovieInfo ON movieinfo.ACTORID=actorInfo.ID WHERE movieinfo.movieid=$1', [id], (err, results) => {
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// }
+const createUpdateOwner = async(firstname, lastname, email, week, weekday, timeblock, catid) => {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    console.log('inside function');
+    const firstQuery = await client.query('INSERT INTO owner (firstname, lastname, email, week, weekday, timeblock, catid) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (email) DO UPDATE SET WEEK = EXCLUDED.week, WEEKDAY = EXCLUDED.weekday, TIMEBLOCK=EXCLUDED.timeblock, CATID=EXCLUDED.catid', [firstname, lastname, email, week, weekday, timeblock, catid]);
+    console.log('1st query executed', firstQuery.command);
+    await client.query('COMMIT');
+    return firstQuery.rowCount;
+  } catch (e) {
+    await client.query('ROLLBACK');
+    console.log(e)
+    throw e;
+  } finally {
+    client.release();
+  }
+};
 
-// const createOwner = async(name, title, role, photo, bio, filmography, movieId) => {
+const deleteOwner = async (email) => {
+  const deleteQuery = {
+    name: 'delete-owner',
+    text: `DELETE FROM owner WHERE email=$1`,
+    values: [email],
+  }
+  try {
+    const res = await pool.query(deleteQuery);
+    return res.rows;
+  } catch (e) {
+    console.log(e.stack);
+    throw e;
+  }
+};
+
+// const createOwner = async(firstname, lastname, email, week, weekday, timeblock, catid) => {
 //   const client = await pool.connect();
 //   try {
 //     await client.query('BEGIN');
 //     console.log('inside function');
-//     const firstQuery = await client.query('INSERT INTO actorInfo (name, title, role, photo, bio, filmography) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [name, title, role, photo, bio, filmography]);
-//     console.log('1st query executed');
-//     // const secondQuery = await client.query('SELECT id from actorInfo WHERE name=$1 AND title=$2', [name, title]);
-//     // console.log('2nd query executed');
-//     // console.log(firstQuery.rows[0].id);
-//     const data = firstQuery.rows[0].id;
-//     const thirdQuery = await client.query('INSERT INTO movieInfo(movieId, actorid) VALUES($1,$2) RETURNING id', [movieId, data]);
-//     // console.log(thirdQuery.rows[0].id);
+//     const firstQuery = await client.query('INSERT INTO owner (firstname, lastname, email, week, weekday, timeblock, catid)VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id', [firstname, lastname, email, week, weekday, timeblock, catid]);
+//     console.log('1st query executed', firstQuery);
 //     await client.query('COMMIT');
-//     return thirdQuery.rows[0].id;
+//     return firstQuery.rows[0].id;
 //   } catch (e) {
 //     await client.query('ROLLBACK');
 //     throw e;
@@ -59,28 +74,9 @@ const getAllCats = async (id) => {
 //   }
 // };
 
-// const updateActor = (name, title, role, photo, bio, filmography, id, callback) => {
-//   pool.query('UPDATE actorInfo SET name= $1, title=$2, role=$3, photo=$4, bio=$5, filmography=$6 WHERE id=$7', [name, title, role, photo, bio, filmography, id], (err, results) => {
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// };
-
-// const deleteActor = (id, callback) => {
-//   pool.query('DELETE FROM actorInfo WHERE id=$1', [id], (err, results) => {
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// };
-
-// UPDATE users SET
 
 module.exports = {
-  getAllCats
+  getAllCats,
+  createUpdateOwner,
+  deleteOwner
 };

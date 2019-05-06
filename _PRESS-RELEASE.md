@@ -1,4 +1,4 @@
-# Project Name #
+# MVP #
 
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,11 +16,10 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
 
-## Heading ##
-  > Cat-in-a-Box
+## Cat-in-a-Box ##
 
-## Sub-Heading ##
-  > Busy working moms and dads.
+## Description ##
+  > Cat selection and delivery service to pair up busy working moms and dads with cutie cats who need loving homes. Option to get a "starter" kit complete with litter box, litter, food, treats, and toys.
 
 ## Summary ##
   > Ever feel like getting a kitty, but don't have time to go down to the local cat shelter? Let your kitty come to you! Go online, find the purrfect cat, and we will deliver your cat right to your door! Not only that, we will include a kitty-starter kit complete with litter, litter box, cat bed, treats, and toys!

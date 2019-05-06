@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: __dirname + '/client/index.jsx',
   module: {
     rules: [
       {
@@ -27,5 +27,5 @@ module.exports = {
     filename: 'bundle-Uma.js',
     path: __dirname + '/public'
   },
-  mode: 'production'
+  mode: 'development'
 };

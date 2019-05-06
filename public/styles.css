@@ -1,17 +1,20 @@
 body {
-  background: radial-gradient(#302b63, #24243e);
-  width: 100%;
+  /* background: radial-gradient(rgb(163, 163, 245), #24243e); */
+  /* width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0; */
   font-family: 'Roboto', sans-serif;
 }
 
+/* .main {
+
+} */
 form {
-  margin: 12% auto;
+  margin: 5% auto;
   background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
-  width: 380px;
-  height: 700px;
+  width: 1000px;
+  height: 540px;
 }
 
 input, select {
@@ -23,13 +26,25 @@ input, select {
   box-sizing: border-box;
 }
 
-button {
-  background-color: #4CAF50;
+.button {
+  background-color:lightblue;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  /* padding: 14px 20px; */
+  /* margin: 8px 0; */
   border: none;
   cursor: pointer;
+  font-size: 24px;
+  width: 100%;
+}
+
+.deleteButton {
+  background-color:lightgrey;
+  color: white;
+  /* padding: 14px 20px; */
+  /* margin: 8px 0; */
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
   width: 100%;
 }
 
@@ -42,7 +57,8 @@ button {
 }
 
 .confirmationColor {
-  color: #4CAF50;
+  color: blue;
+  font-size: 20;
 }
 
 button:hover {
@@ -53,4 +69,31 @@ button:hover {
   padding: 16px;
 }
 
+.confirmationPic {
+  margin: 1% auto;
+  background-color: #f7f7f9;
+  border: 3px solid #f1f1f1;
+  width: 400px;
+  height: 300px;
+  justify-content: center;
+  display: flex;
+}
+#gallery {
+  margin: 5% auto;
+  background-color: #f7f7f9;
+  border: 3px solid #f1f1f1;
+  width: 500px;
+  height: 380px;
+  justify-content: center;
+  display: flex;
+}
 
+.header {
+  margin: 0.2% auto;
+  font-family: 'Oleo Script', cursive;
+  font-size: 60px;
+  /* background-color: #f7f7f9;
+  border: 3px solid #f1f1f1; */
+  justify-content: center;
+  display: flex;
+}

@@ -11,10 +11,11 @@
     "react-dev": "webpack -p --watch",
     "server-dev": "nodemon server/index.js",
     "write": "node --max_old_space_size=4096 ./database/writeCatData.js",
-    "seedDatabase":"node --max-old-space-size=4096 ./database/seedPostgresqlCats.js",
+    "seedDatabase": "node --max-old-space-size=4096 ./database/seedPostgresqlCats.js",
     "enterPostgresEC2": "ssh -i postgres-test.pem ec2-user@ec2-54-215-226-106.us-west-1.compute.amazonaws.com"
   },
   "dependencies": {
+    "@vaadin/vaadin-button": "^2.2.0",
     "axios": "^0.18.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

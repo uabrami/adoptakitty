@@ -62,7 +62,8 @@ const seedPostgres = async () => {
         email VARCHAR(100),
         week VARCHAR(100),
         weekday VARCHAR(100),
-        timeblock VARCHAR(100)
+        timeblock VARCHAR(100),
+        catId VARCHAR(100),
         );
     `);
 
