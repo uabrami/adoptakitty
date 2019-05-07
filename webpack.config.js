@@ -27,5 +27,5 @@ module.exports = {
     filename: 'bundle-Uma.js',
     path: __dirname + '/public'
   },
-  mode: 'development'
+  mode: 'development',
 };

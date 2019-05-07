@@ -23,12 +23,16 @@ class App extends React.Component {
       catid: 1,
       validEmail: false,
       data: '',
+      choseKitty: false,
     };
     this.emailValidate = this.emailValidate.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteOwner = this.deleteOwner.bind(this);
-    // this.setCatIdState = this.setCatIdState.bind(this);
+    this.setCatIdState = this.setCatIdState.bind(this);
+    this.chooseKitty = this.chooseKitty.bind(this);
+    this.showMessage = this.showMessage.bind(this);
+
   }
 
   componentDidMount(){
@@ -53,6 +57,16 @@ class App extends React.Component {
     }
   }
 
+  showMessage(){
+    document.getElementById('chooseKitty').className = "confirmationColorMessage";
+    document.getElementById('container').className = "container";
+
+    // if(this.state.chooseKitty === true){
+    //   document.getElementById('chooseKitty').className = "deleteConfirmationColor";
+    // } else if(this.state.chooseKity === false){
+    //   document.getElementById('chooseKitty').className = "deleteConfirmationColor transparent";
+    // }
+  }
   handleChange(event) {
     event.preventDefault();
     this.setState({
@@ -60,12 +74,22 @@ class App extends React.Component {
     });
   }
 
-  // setCatIdState(event){
-  //   event.preventDefault();
-  //   this.setState({
-  //     catid: event.target.value.trim(),
-  //   });
-  // }
+  setCatIdState(dataFromChild){
+    this.setState({
+      catid: dataFromChild,
+    });
+    console.log("parent, catId", this.state.catid);
+  }
+
+  chooseKitty(event){
+    event.preventDefault();
+    // this.setState({
+    //   choseKitty: true,
+    // });
+    // console.log("choseKitty", this.state.choseKitty)
+    this.showMessage();
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     this.emailValidate();
@@ -124,9 +148,16 @@ class App extends React.Component {
           <h2 className="header">Cat-in-a-Box!</h2>
           {/* <img src='https://s3-us-west-1.amazonaws.com/mvpuma/catsinabox.webp' width="100px" height="100px"></img> */}
         <div className="gallery" id="gallery">
-        <CatImageGallery data = {this.state.data}/>
+        <CatImageGallery data = {this.state.data} callbackFromParent={this.setCatIdState}/>
         </div>
-        <div className="container">
+        <div className = "transparent" id="chooseKitty">
+              *Congrats, you are one step away from meeting your kitten, just fill out the form below!
+            </div>
+        <div>
+          <button className="buttonChooseKitty" value="Choose this Kitty!" onClick={this.chooseKitty}> Choose this Kitty!
+          </button>
+        </div>
+        <div className="transparent container" id="container">
         <form>
           <h2>Schedule or Update your video consultation...</h2>
           <label>First Name: </label>
