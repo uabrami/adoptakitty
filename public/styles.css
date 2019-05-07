@@ -8,6 +8,7 @@ body {
 .header {
   font-family: 'Oleo Script', cursive;
   font-size: 60px;
+  text-shadow: 2px 2px whitesmoke;
   /* background-color: #f7f7f9;
   border: 3px solid #f1f1f1; */
   justify-content: center;
@@ -21,15 +22,15 @@ form {
   background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
   width: 1000px;
-  height: 540px;
+  height: 705px;
 }
 
 input, select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  display: flex;
+  border: 3px solid #ccc;
   box-sizing: border-box;
 }
 
@@ -48,7 +49,11 @@ input, select {
   background-color:lightgrey;
   color: white;
   /* padding: 14px 20px; */
-  margin: 8px 0;
+  /* margin: 70px 0, 0, 0; */
+  margin-top: 80px;
+  margin-bottom: 8px;
+  margin-right: 0px;
+  margin-left: 0px;
   border: none;
   cursor: pointer;
   font-size: 18px;
@@ -64,10 +69,24 @@ input, select {
 }
 
 .confirmationColor {
+  color: lightblue;
+  font-size: 20;
+  justify-content: center;
+  display: flex;
+  background-color: #f7f7f9;
+  border: 3px solid #f1f1f1;
+  width: 1000px;
+  height: 200px;
+}
+.deleteConfirmationColor {
   color: blue;
   font-size: 20;
   justify-content: center;
   display: flex;
+  background-color: #f7f7f9;
+  border: 3px solid #f1f1f1;
+  width: 1000px;
+  height: 40px;
 }
 
 button:hover {
@@ -82,17 +101,15 @@ button:hover {
   margin: 5% auto;
   background-color: #f7f7f9;
   border: 3px solid #f1f1f1;
-  width: 400px;
-  height: 300px;
   justify-content: center;
   display: flex;
 }
 #gallery {
   margin: 5% auto;
   background-color: #f7f7f9;
-  border: 3px solid #f1f1f1;
+  border: 10px solid blueviolet;
   width: 500px;
-  height: 380px;
+  height: 450px;
   justify-content: center;
   display: flex;
 }

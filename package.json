@@ -8,7 +8,7 @@
     "node": ">=10.15.3"
   },
   "scripts": {
-    "react-dev": "webpack -p --watch",
+    "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "write": "node --max_old_space_size=4096 ./database/writeCatData.js",
     "seedDatabase": "node --max-old-space-size=4096 ./database/seedPostgresqlCats.js",
