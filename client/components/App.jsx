@@ -169,8 +169,8 @@ class App extends React.Component {
           <div className = "invalid-email transparent" id="validateEmail">
               *Please enter a valid email address
             </div>
-          <label>Kitty picture number: </label>
-          <input type="text" id="catid" onChange={this.handleChange}></input>
+          {/* <label>Kitty picture number: </label>
+          <input type="text" id="catid" onChange={this.handleChange}></input> */}
             <label>Week: </label>
           <select id="week" onChange={this.handleChange}>
             <option selected value="chooseWeek">Choose a week</option>
