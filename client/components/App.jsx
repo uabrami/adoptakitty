@@ -24,6 +24,7 @@ class App extends React.Component {
       validEmail: false,
       data: '',
       choseKitty: false,
+      chosenName: 'Milo',
     };
     this.emailValidate = this.emailValidate.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -60,12 +61,17 @@ class App extends React.Component {
   showMessage(){
     document.getElementById('chooseKitty').className = "confirmationColorMessage";
     document.getElementById('container').className = "container";
+    document.getElementById('chooseKittyButton').className = "transparent";
 
+    this.setState({
+      chosenName: this.state.data[this.state.catid-1].name
+    })
     // if(this.state.chooseKitty === true){
     //   document.getElementById('chooseKitty').className = "deleteConfirmationColor";
     // } else if(this.state.chooseKity === false){
     //   document.getElementById('chooseKitty').className = "deleteConfirmationColor transparent";
     // }
+    console.log(this.state.chosenName);
   }
   handleChange(event) {
     event.preventDefault();
@@ -92,10 +98,10 @@ class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.emailValidate();
+    // this.emailValidate();
     const {firstname, lastname, email, week, weekday, timeblock, catid} = this.state;
-    if(this.state.validEmail === true && firstname !== '' && lastname !== '' && catid !== ''){
-      document.getElementById('insert-confirmation').className = "confirmationColor transparent";
+    // if(this.state.validEmail === true && firstname !== '' && lastname !== ''){
+      // document.getElementById('insert-confirmation').className = "confirmationColor transparent";
     axios.post('/owner/add', {
       firstname,
       lastname,
@@ -107,17 +113,14 @@ class App extends React.Component {
     })
     .then(results => {
       console.log("post results", results)
-      if (this.state.validEmail === true) {
-        if (results.status === 201) {
           document.getElementById('insert-confirmation').className = "confirmationColor";
-        }
+          document.getElementById('deleteButton').className = "deleteButton";
         // if (results.status === 202) {
         //   document.getElementById('update-confirmation').className = "confirmationColor";
         // }
-      }
       })
       .catch(error => console.error(error));
-    }
+    // }
   }
 
   deleteOwner(event) {
@@ -151,10 +154,10 @@ class App extends React.Component {
         <CatImageGallery data = {this.state.data} callbackFromParent={this.setCatIdState}/>
         </div>
         <div className = "transparent" id="chooseKitty">
-              *Congrats, you are one step away from meeting your kitten, just fill out the form below!
+              Congrats, you are one step away from meeting {this.state.chosenName}, just fill out the short form below!
             </div>
         <div>
-          <button className="buttonChooseKitty" value="Choose this Kitty!" onClick={this.chooseKitty}> Choose this Kitty!
+          <button id="chooseKittyButton" className="buttonChooseKitty" value="Choose this Kitty!" onClick={this.chooseKitty}> Choose this Kitty!
           </button>
         </div>
         <div className="transparent container" id="container">
@@ -206,7 +209,7 @@ class App extends React.Component {
               <InsertConfirmation owner = {this.state}/>
           </div>
           <div>
-            <button className="deleteButton" value="Cancel your appointment" onClick={this.deleteOwner}> Cancel your appointment </button>
+            <button className="transparent" value="Cancel your appointment" id="deleteButton" onClick={this.deleteOwner}> Cancel your appointment </button>
             <div className = "confirmation transparent" id="delete-confirmation">
               <DeleteConfirmation owner = {this.state}/>
             </div>

@@ -9,7 +9,8 @@ class CatImageGallery extends React.Component {
     this.state = {
       showIndex: true,
       index: 1,
-      showThumbnails: false
+      showThumbnails: false,
+      showFullscreenButton: false,
     }
   }
 
@@ -40,7 +41,7 @@ class CatImageGallery extends React.Component {
   // console.log('images', getCurrentIndex())
   // onClick={this._onImageClick.bind(this)}
   return (
-        <ImageGallery items={images} showIndex={this.state.showIndex} ref={i => this._imageGallery = i} onSlide={this._onImageSlide.bind(this)} showThumbnails={this.state.showThumbnails}/>
+        <ImageGallery items={images} showIndex={this.state.showIndex} ref={i => this._imageGallery = i} onSlide={this._onImageSlide.bind(this)} showThumbnails={this.state.showThumbnails} showFullscreenButton={this.state.showFullscreenButton}/>
         // idx= {this._imageGallery.getCurrentIndex()} setCatIdState={this.props.setCatIdState(this.state.index)}
     );
   }
